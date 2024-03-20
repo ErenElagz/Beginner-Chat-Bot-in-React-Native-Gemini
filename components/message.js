@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const date = new Date();
 

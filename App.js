@@ -5,14 +5,13 @@ import Response from "./components/response";
 import Message from "./components/message";
 
 export default function App() {
-	const d = new Date();
 	const [inputText, setInputText] = useState("");
 	const [listData, setListData] = useState([]);
 	const SearchInput = () => {
 		setListData((prevList) => [...prevList, inputText]);
 		setInputText("");
-		console.log(listData);
 	};
+
 	return (
 		<View style={styles.container}>
 			<StatusBar style="default" />
@@ -24,7 +23,7 @@ export default function App() {
 				</TouchableOpacity>
 				<View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
 					<Image source={require("./assets/logo.png")} style={styles.icon} />
-					<Text style={{ fontSize: 24, fontWeight: "800", color: "#323232" }}>AtlasAI</Text>
+					<Text style={{ fontSize: 24, fontWeight: "800", color: "#323232"}}>AtlasAI</Text>
 				</View>
 				<TouchableOpacity>
 					<Image source={require("./assets/icons/menu.png")} style={styles.icon} />
@@ -46,7 +45,7 @@ export default function App() {
 
 			{/* Search-Bar */}
 			<View style={styles.searchBar}>
-				<TextInput placeholder="Ask to Atlas AI" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)}></TextInput>
+				<TextInput placeholder="Ask to Atlas AI" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)} selectionColor={"#323232"}></TextInput>
 				<TouchableOpacity onPress={SearchInput}>
 					<Image source={require("./assets/icons/right-arrow.png")} style={styles.icon} />
 				</TouchableOpacity>
@@ -57,18 +56,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#ffffff",
 		flex: 1,
-		paddingTop: 16,
+		gap: 16,
+		paddingTop: 36,
 	},
 	header: {
-		width: "100%",
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
 		paddingHorizontal: 16,
-		paddingTop: 24,
-		paddingBottom: 16,
 	},
 	icon: {
 		width: 24,
@@ -83,7 +79,7 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		paddingHorizontal: 32,
-		paddingVertical: 12,
+		paddingVertical: 16,
 		gap: 8,
 	},
 	input: {
