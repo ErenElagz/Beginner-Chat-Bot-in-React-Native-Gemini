@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, ScrollView, FlatList, TouchableOpacity, TextInput } from "react-native";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity, TextInput } from "react-native";
+import Response from "./components/response";
+import Message from "./components/message";
 
 export default function App() {
+	const d = new Date();
 	const [inputText, setInputText] = useState("");
 	const [listData, setListData] = useState([]);
-	const handleButtonPress = () => {
+	const SearchInput = () => {
 		setListData((prevList) => [...prevList, inputText]);
 		setInputText("");
 		console.log(listData);
 	};
-	const d = new Date();
-
 	return (
 		<View style={styles.container}>
 			<StatusBar style="default" />
@@ -32,50 +32,22 @@ export default function App() {
 			</View>
 
 			{/* Content */}
-			<ScrollView style={{ paddingHorizontal: 16, marginBottom: 80 }}>
-				<FlatList
-					data={listData}
-					renderItem={({ item }) => (
-						<View>
-							<View style={styles.message}>
-								<View style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-									<View style={{ flex: 1, flexDirection: "row", alignItems: "center", gap: 2 }}>
-										<Image source={require("./assets//icons/user.png")} style={{ width: 32, height: 32 }} />
-										<Text style={{ fontWeight: 500 }}>ErenElagz</Text>
-									</View>
-									<Text style={{ fontSize: 10, fontWeight: 600 }}>
-										{d.getHours()}:{d.getMinutes()}
-									</Text>
-								</View>
-								<Text style={{ fontSize: 14, width: "100%", flex: 1, paddingLeft: 32 }}>{item}</Text>
-							</View>
-							<View style={styles.response}>
-								<View style={{  flexDirection: "row", alignItems: "center", justifyContent: "space-between",width:"100%" }}>
-									<Text style={{ fontSize: 10, fontWeight: 600 }}>
-										{d.getHours()}:{d.getMinutes()}
-									</Text>
-									<View style={{ flex: 1, flexDirection: "row", alignItems: "center", gap: 2 }}>
-										<Text style={{ fontWeight: 500 }}>ErenElagz</Text>
-										<Image source={require("./assets//icons/user.png")} style={{ width: 32, height: 32 }} />
-									</View>
-								</View>
-								<Text style={{ fontSize: 14, width: "100%", flex: 1, paddingLeft: 32 }}>{item}</Text>
-							</View>
-						</View>
-					)}
-					keyExtractor={(item, index) => index.toString()}
-				/>
-			</ScrollView>
+			<FlatList
+				style={{ paddingHorizontal: 16, marginBottom: 80 }}
+				data={listData}
+				renderItem={({ item }) => (
+					<View>
+						<Message message={item} />
+						<Response prompt={item} />
+					</View>
+				)}
+				keyExtractor={(item, index) => index.toString()}
+			/>
 
 			{/* Search-Bar */}
 			<View style={styles.searchBar}>
-				<TextInput
-					placeholder="Ask to Atlas AI"
-					style={styles.input}
-					value={inputText}
-					onChangeText={(text) => setInputText(text)} // Input alanındaki metni state'e atıyoruz
-				></TextInput>
-				<TouchableOpacity onPress={handleButtonPress}>
+				<TextInput placeholder="Ask to Atlas AI" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)}></TextInput>
+				<TouchableOpacity onPress={SearchInput}>
 					<Image source={require("./assets/icons/right-arrow.png")} style={styles.icon} />
 				</TouchableOpacity>
 			</View>
@@ -88,24 +60,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "#ffffff",
 		flex: 1,
 		paddingTop: 16,
-	},
-	message: {
-		flexDirection: "column",
-		gap: 8,
-		backgroundColor: "#f1f2f3",
-		marginBottom: 16,
-		padding: 16,
-		borderRadius: 16,
-		alignItems: "top",
-	},
-	response: {
-		flexDirection: "column",
-		gap: 8,
-		backgroundColor: "#fafafa",
-		marginBottom: 16,
-		padding: 16,
-		borderRadius: 16,
-		alignItems: "top",
 	},
 	header: {
 		width: "100%",
