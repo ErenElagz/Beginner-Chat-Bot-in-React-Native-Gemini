@@ -39,7 +39,6 @@ Start the App
 
 ## Screenshots
 ![App](https://github.com/ErenElagz/Beginner-Chat-Bot-in-React-Native-Gemini/assets/125195062/133c8b9a-b430-4877-b5be-a9cd41fe33ee)
-![App](https://github.com/ErenElagz/Beginner-Chat-Bot-in-React-Native-Gemini/assets/125195062/6f9a7e3c-70bb-427d-a59c-42e07ca89fd8)
 
 
 ## Support
