@@ -27,9 +27,7 @@
       "favicon": "./assets/logo.png"
     },
     "plugins": [
-      "expo-font",
-      {
-        "fonts": ["./assets/fonts/Poppins-Bold.ttf"]
-      }    ]
+      "expo-router"
+    ]
   }
 }

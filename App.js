@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, Text, View, Image, FlatList, TextInput, TouchableOpacity } from "react-native";
 import Response from "./components/response";
 import Message from "./components/message";
 
@@ -14,20 +14,12 @@ export default function App() {
 
 	return (
 		<View style={styles.container}>
-			<StatusBar style="default" />
+			<StatusBar style="auto" />
 
 			{/* Header */}
 			<View style={styles.header}>
-				<TouchableOpacity>
-					<Image source={require("./assets/icons/left-arrow.png")} style={styles.icon} />
-				</TouchableOpacity>
-				<View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-					<Image source={require("./assets/logo.png")} style={styles.icon} />
-					<Text style={{ fontSize: 24, fontWeight: "800", color: "#323232"}}>AtlasAI</Text>
-				</View>
-				<TouchableOpacity>
-					<Image source={require("./assets/icons/menu.png")} style={styles.icon} />
-				</TouchableOpacity>
+				<Image source={require("./assets/icons/robot.png")} style={styles.icon} />
+				<Text style={{ fontSize: 24, fontWeight: "800", color: "#323232" }}>Gemini AI</Text>
 			</View>
 
 			{/* Content */}
@@ -45,7 +37,7 @@ export default function App() {
 
 			{/* Search-Bar */}
 			<View style={styles.searchBar}>
-				<TextInput placeholder="Ask to Atlas AI" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)} selectionColor={"#323232"}></TextInput>
+				<TextInput placeholder="Ask to Gemini AI" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)} selectionColor={"#323232"}></TextInput>
 				<TouchableOpacity onPress={SearchInput}>
 					<Image source={require("./assets/icons/right-arrow.png")} style={styles.icon} />
 				</TouchableOpacity>
@@ -62,13 +54,14 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		flexDirection: "row",
-		justifyContent: "space-between",
 		alignItems: "center",
 		paddingHorizontal: 16,
+		margin: 8,
+		gap: 8,
 	},
 	icon: {
-		width: 24,
-		height: 24,
+		width: 32,
+		height: 32,
 	},
 	searchBar: {
 		backgroundColor: "#ffffff",

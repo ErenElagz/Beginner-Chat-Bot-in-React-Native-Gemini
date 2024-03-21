@@ -8,7 +8,7 @@ export default function Message(props) {
 		<View style={styles.message}>
 			<View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
 				<View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-					<Image source={require("../assets//icons/user.png")} style={{ width: 20, height: 20 }} />
+					<Image source={require("../assets//icons/user.png")} style={styles.icon} />
 					<Text style={{ fontWeight: 500 }}>Username</Text>
 				</View>
 				<Text style={{ fontSize: 10, fontWeight: 600 }}>
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
 		flexDirection: "column",
 		gap: 8,
 		backgroundColor: "#f1f2f3",
-		marginBottom: 16,
+		marginBottom: 8,
 		padding: 16,
 		borderRadius: 16,
 	},
 	icon: {
-		width: 24,
-		height: 24,
+		width: 28,
+		height: 28,
 	},
 });
