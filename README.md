@@ -15,7 +15,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd Beginner-Chat-Bot-in-React-Native-Gemini
 ```
 
 Install dependencies
