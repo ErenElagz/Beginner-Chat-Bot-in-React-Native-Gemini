@@ -23,6 +23,11 @@ Install dependencies
 ```bash
   npm install
 ```
+Get Your Gemini API Key from this link and change the API_KEY value of components/response.js 
+
+```bash
+https://aistudio.google.com/app/apikey
+```
 
 Start the App
 
