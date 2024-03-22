@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Atlas AI",
-    "slug": "Atlas AI",
+    "name": "Gemini Chat-Bot",
+    "slug": "Beginner Level ChatBot",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/icons/robot.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/icons/robot.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo.png",
+        "foregroundImage": "./assets/icons/robot.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/logo.png"
+      "favicon": "./assets/icons/robot.png"
     },
     "plugins": [
       "expo-router"
